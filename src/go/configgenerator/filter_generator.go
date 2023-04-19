@@ -75,6 +75,9 @@ func MakeFilterGenerators(serviceInfo *ci.ServiceInfo) ([]FilterGenerator, error
 		filtergen.NewPathRewriteGenerator(serviceInfo),
 		filtergen.NewGRPCMetadataScrubberGenerator(serviceInfo),
 
+		// Add the Lua filter to support request signing.
+		&filtergen.RawRequestHeaderGenerator{},
+
 		// Add Envoy Router filter so requests are routed upstream.
 		// Router filter should be the last.
 		&filtergen.RouterGenerator{},
