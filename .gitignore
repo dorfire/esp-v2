@@ -4,7 +4,11 @@ vendor/
 bin/
 *.pyc
 node_modules/
-src/go/proto/
+
+# In GoogleCloudPlatform/esp-v2, this directory is ignored;
+# However, at Utila, we check it into the repo to simplify downstream builds.
+#src/go/proto/
+
 # IDE
 .clwb/
 .ijwb/
