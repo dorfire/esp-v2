@@ -8,15 +8,11 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-const (
-	// RawRequestHeaderFilterName is the Envoy filter name for debug logging.
-	RawRequestHeaderFilterName = "io.utila.espv2.filters.http.raw_req"
-)
-
 type RawRequestHeaderGenerator struct{}
 
 func (g *RawRequestHeaderGenerator) FilterName() string {
-	return RawRequestHeaderFilterName
+	// See https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/lua_filter#configuration
+	return "envoy.filters.http.lua"
 }
 
 func (g *RawRequestHeaderGenerator) IsEnabled() bool {
