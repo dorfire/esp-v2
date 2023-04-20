@@ -31,7 +31,7 @@ func (g *RawRequestHeaderGenerator) GenFilterConfig(_ *configinfo.ServiceInfo) (
 					end
 					local firstKib = reqBuf:getBytes(0, 1024)
 					local firstKibB64 = handle:base64Escape(firstKib)
-					request_handle:headers():add("request-body-b64", firstKibB64)
+					request_handle:headers():add("x-request-body-b64", firstKibB64)
 				end
 			`,
 		}},
